@@ -1,6 +1,21 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import HomePage from "./HomePage"
+import LoginPage from "./LoginPage"
+import RegisterPage from "./RegisterPage"
 
+  
 export default function App() {
   return (
-    <div className="text-5xl font-bold text-center flex justify-center items-center h-screen  text-primary">OpsCore</div>
+    
+    <BrowserRouter>
+
+      <Routes>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="/auth/login" element={<LoginPage/>}/>                
+        <Route path="/auth/register" element={<RegisterPage/>}/>                
+      </Routes>
+
+    </BrowserRouter>
+
   )
 }
