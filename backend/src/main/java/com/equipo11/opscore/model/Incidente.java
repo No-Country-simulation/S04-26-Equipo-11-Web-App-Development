@@ -1,6 +1,8 @@
 package com.equipo11.opscore.model;
 
 import com.equipo11.opscore.model.enums.EstadoIncidente;
+import com.equipo11.opscore.model.enums.PrioridadIncidente;
+import com.equipo11.opscore.model.enums.TipoIncidente;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -27,6 +29,18 @@ public class Incidente {
     private LocalDateTime fechaCreacion;
 
     private LocalDateTime fechaResolucion;
+
+    private LocalDateTime fechaCierre;
+
+    private LocalDateTime fechaPrimeraAsignacion;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private PrioridadIncidente prioridad;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TipoIncidente tipo;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
