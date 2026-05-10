@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 @Component
-public class JWTUtil {
+public class JWTUtil implements TokenGenerator {
 
     @Value("${jwt.secret}")
     private String jwtSecret;
@@ -27,6 +27,7 @@ public class JWTUtil {
         this.secretKey = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
     }
 
+    @Override
     public String generateToken(Usuario usuario) {
         Date creationDate = new Date();
         return Jwts.builder()
@@ -36,7 +37,7 @@ public class JWTUtil {
                 .signWith(secretKey)
                 .compact();
     }
-
+    @Override
     public String getUserFromToken(String token) {
         return Jwts.parser()
                 .verifyWith(secretKey)
@@ -46,8 +47,8 @@ public class JWTUtil {
                 .getSubject();
 
     }
-
-    public boolean validateJwtToken(String token) {
+    @Override
+    public boolean validateToken(String token) {
         try {
             Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token);
             return true;
