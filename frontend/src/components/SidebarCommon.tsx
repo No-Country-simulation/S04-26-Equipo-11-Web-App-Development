@@ -7,6 +7,7 @@ import {
     Settings,
 } from "lucide-react";
 import { SidebarHeader, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarGroupContent, Sidebar, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "./ui/sidebar";
+import Logo from "./logo";
 
 type LinkType = {
   href: string;
@@ -26,7 +27,7 @@ export default function SidebarCommon({ links }: SidebarProps) {
         <SidebarHeader className="border-b">
             <div className="flex items-center gap-3 px-2 py-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                <TriangleAlert className="h-5 w-5" />
+                <Logo className="w-6 h-6"/>
             </div>
 
             <div>
