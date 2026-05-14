@@ -86,7 +86,7 @@ export default function LoginPage() {
         </p>
         </div>
 
-        <Button type="submit" className="w-full py-5 ">
+        <Button type="submit" className="w-full py-5 bg-primary">
           Iniciar Sesión
         </Button>        
     </form>
