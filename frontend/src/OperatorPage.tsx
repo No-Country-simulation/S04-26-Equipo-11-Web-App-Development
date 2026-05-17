@@ -1,5 +1,7 @@
 import { CheckCircle2, Clock3, Plus, TriangleAlert, Wrench } from "lucide-react";
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card";
+import { ModalCommon } from "./components/modal-common";
+import { ModalWithoutButton } from "./components/modal-without-button";
 
 export default function OperatorPage() {
     return (
@@ -31,7 +33,7 @@ export default function OperatorPage() {
                 </CardContent>
             </Card>
 
-        </div>
+        </div>        
 
 
         <Card className="bg-primary text-primary-foreground transition hover:scale-[1.02] hover:cursor-pointer block lg:hidden">
@@ -54,7 +56,7 @@ export default function OperatorPage() {
             </CardContent>
         </Card>
         
-        
+
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
 
             <Card className="rounded-2xl">
@@ -75,9 +77,9 @@ export default function OperatorPage() {
                     +2 esta semana
                     </p>
                 </CardContent>
-                </Card>
+            </Card>
 
-                <Card className="rounded-2xl">
+            <Card className="rounded-2xl">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
                     En Revisión
@@ -95,9 +97,9 @@ export default function OperatorPage() {
                     Pendientes de técnico
                     </p>
                 </CardContent>
-                </Card>
+            </Card>
 
-                <Card className="rounded-2xl">
+            <Card className="rounded-2xl">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
                     Resueltos
@@ -115,9 +117,9 @@ export default function OperatorPage() {
                     Últimos 30 días
                     </p>
                 </CardContent>
-                </Card>
+            </Card>
 
-                <Card className="rounded-2xl">
+            <Card className="rounded-2xl">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
                     Técnicos Asignados
@@ -135,52 +137,56 @@ export default function OperatorPage() {
                     Trabajando actualmente
                     </p>
                 </CardContent>
-                </Card>
+            </Card>
 
             </div>
 
                 <Card className="rounded-2xl">
 
-                <CardHeader>
-                <CardTitle>
-                    Últimos incidentes
-                </CardTitle>
-                </CardHeader>
+                    <CardHeader>
+                    <CardTitle>
+                        Últimos incidentes
+                    </CardTitle>
+                    </CardHeader>
 
                 <CardContent>
 
                 <div className="space-y-4">
 
+                    <ModalWithoutButton toggle={<div className="flex items-center justify-between rounded-xl border p-4">
+                            <div>
+                                <h3 className="font-medium">
+                                Falla en cinta transportadora
+                                </h3>
+
+                                <p className="text-sm text-muted-foreground">
+                                Reportado hace 2 horas
+                                </p>
+                            </div>
+
+                            <span className="rounded-full bg-yellow-500/10 px-3 py-1 text-xs font-medium text-yellow-500">
+                                En revisión
+                            </span>
+                        </div>} title={"Falla en cinta transportadora"} description={"Reportado hace 2 horas"} children={<p>Prueba</p>}>
+                        
+                        
+                        
+                    </ModalWithoutButton>
+
                     <div className="flex items-center justify-between rounded-xl border p-4">
-                    <div>
-                        <h3 className="font-medium">
-                        Falla en cinta transportadora
-                        </h3>
+                            <div>
+                                <h3 className="font-medium">
+                                    Pérdida de presión hidráulica
+                                </h3>
 
-                        <p className="text-sm text-muted-foreground">
-                        Reportado hace 2 horas
-                        </p>
-                    </div>
+                                <p className="text-sm text-muted-foreground">
+                                    Reportado ayer
+                                </p>
+                            </div>
 
-                    <span className="rounded-full bg-yellow-500/10 px-3 py-1 text-xs font-medium text-yellow-500">
-                        En revisión
-                    </span>
-                    </div>
-
-                    <div className="flex items-center justify-between rounded-xl border p-4">
-                    <div>
-                        <h3 className="font-medium">
-                        Pérdida de presión hidráulica
-                        </h3>
-
-                        <p className="text-sm text-muted-foreground">
-                        Reportado ayer
-                        </p>
-                    </div>
-
-                    <span className="rounded-full bg-green-500/10 px-3 py-1 text-xs font-medium text-green-500">
-                        Resuelto
-                    </span>
+                            <span className="rounded-full bg-green-500/10 px-3 py-1 text-xs font-medium text-green-500">
+                                Resuelto
+                            </span>
                     </div>
 
                     <div className="flex items-center justify-between rounded-xl border p-4">
